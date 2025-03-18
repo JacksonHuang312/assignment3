@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculators</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
+    
 
     <form id="heron-form">
         <label for="">Heron's Formula</label>
@@ -23,16 +25,34 @@
         <input type="number" name="heron-c" id="heron-c" required>
         <br>
         <label>Result</label>
-        <input type="text" name="heron-result" id="heron-result" readonly>
+        <input type="text" name="heron-result" id="heron-result" disabled>
         <br>
         <input type="submit" value="Calculate">
     </form>
 
+
+    <form id="Ambiguous Case">
+        <label for="">Ambiguous Case</label>
+        <br>
+        <label>Side A</label>
+        <input type="number" name="ambig-a" id="ambig-a" required>
+        <br>
+        <label>Side B</label>
+        <input type="number" name="ambig-b" id="ambig-b" required>
+        <br>
+        <label>Side C</label>
+        <input type="number" name="ambig-c" id="ambig-c" required>
+        <br>
+        <label>Triangle Type</label>
+        <input type="text" name="ambig-result" id="ambig-result" readonly>
+        <br>
+        <input type="submit" value="Calculate">
+
+    </form>
+
+
+
     <script src="script.js"></script>
-
-
-
-
 </body>
 
 </html>
