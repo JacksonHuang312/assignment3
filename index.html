@@ -31,8 +31,11 @@
     </form>
 
 
-    <form id="Ambiguous Case">
+    <form id="ambig-form">
         <label for="">Ambiguous Case</label>
+        <br>
+        <label>Angle A</label>
+        <input type="number" name="ambig-angle" id="ambig-angle" min="0" max="180" required>
         <br>
         <label>Side A</label>
         <input type="number" name="ambig-a" id="ambig-a" required>
@@ -40,16 +43,13 @@
         <label>Side B</label>
         <input type="number" name="ambig-b" id="ambig-b" required>
         <br>
-        <label>Side C</label>
-        <input type="number" name="ambig-c" id="ambig-c" required>
-        <br>
         <label>Triangle Type</label>
-        <input type="text" name="ambig-result" id="ambig-result" readonly>
+        <input type="text" name="ambig-result" id="ambig-result" disabled>
         <br>
         <input type="submit" value="Calculate">
-
     </form>
 
+    
 
 
     <script src="script.js"></script>
