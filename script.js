@@ -16,7 +16,7 @@ document.getElementById('heron-form').addEventListener('submit', function (event
 
 function ambiguousCase(a, b, angle) {
     if (angle == 90) {
-        return "rightTriangle";
+        return "Right Triangle";
     }
     const h = b * Math.sin(angle * Math.PI / 180);
 
@@ -59,4 +59,3 @@ document.getElementById('ambig-form').addEventListener('submit', function(event)
     const result = ambiguousCase(a, b, angle);
     document.getElementById('ambig-result').value = result;
 });
-
