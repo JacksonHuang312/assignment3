@@ -75,5 +75,11 @@ document.getElementById('newton-form').addEventListener('submit', function (even
     event.preventDefault();
     const a = document.getElementById('root-guess').value;
     const result = approximation(a);
-    document.getElementById('root-result').value = result;
+    const result2 = a;
+    while (Math.abs(result2 - result) > 0.001) {
+        return result2 = approximation(result);
+    }
+
+
+    document.getElementById('root-result').value = result2;
 });
