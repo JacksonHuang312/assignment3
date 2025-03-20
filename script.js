@@ -49,7 +49,7 @@ function ambiguousCase(a, b, angle) {
     }
 }
 
-document.getElementById('ambig-form').addEventListener('submit', function(event) {
+document.getElementById('ambig-form').addEventListener('submit', function (event) {
     event.preventDefault();
 
     const a = document.getElementById('ambig-a').value;
@@ -58,4 +58,22 @@ document.getElementById('ambig-form').addEventListener('submit', function(event)
 
     const result = ambiguousCase(a, b, angle);
     document.getElementById('ambig-result').value = result;
+});
+
+function approximation(guess) {
+
+    const a = Math.pow(guess, 4);
+    const b = Math.pow(guess, 3);
+    const c = Math.pow(guess, 2);
+    const fxn = (6 * a - 13 * b - 18 * c + 7 * guess + 6);
+    const fxnPrime = (24 * b - 39 * c - 36 * guess + 7);
+    return (guess - fxn / fxnPrime);
+
+}
+
+document.getElementById('newton-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const a = document.getElementById('root-guess').value;
+    const result = approximation(a);
+    document.getElementById('root-result').value = result;
 });

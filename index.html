@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculators</title>
     <link rel="stylesheet" href="style.css">
-    
+
 </head>
 
 <body>
-    
+
 
     <form id="heron-form">
         <label for="">Heron's Formula</label>
@@ -49,8 +49,17 @@
         <input type="submit" value="Calculate">
     </form>
 
-    
-
+    <form id="newton-form">
+        <label>Newtons Method</label>
+        <br>
+        <label>Root Guess</label>
+        <input type="number" name="root-guess" id="root-guess" step="0.001" required>
+        <br>
+        <label>Root Approximation</label>
+        <input type="number" name="root-result" id="root-result" disabled>
+        <br>
+        <input type="submit" value="Calculate">
+    </form>
 
     <script src="script.js"></script>
 </body>
