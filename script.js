@@ -73,13 +73,67 @@ function approximation(guess) {
 
 document.getElementById('newton-form').addEventListener('submit', function (event) {
     event.preventDefault();
-    const a = document.getElementById('root-guess').value;
-    const result = approximation(a);
-    const result2 = a;
+    let guess = +document.getElementById('root-guess').value;
+    let result = guess;
+    let result2 = approximation(result);
+
     while (Math.abs(result2 - result) > 0.001) {
-        return result2 = approximation(result);
+        result = result2;
+        result2 = approximation(result);
+        result2 = Math.round(result2 * 1000) / 1000;
     }
 
 
     document.getElementById('root-result').value = result2;
+});
+
+function polynomial(coefficients, exponents, x) {
+    let result = 0;
+    let polynomialString = '';
+
+    for (let i = 0; i < coefficients.length; i++) {
+        let coeff = parseFloat(coefficients[i]);
+        let expo = parseFloat(exponents[i]);
+
+        if (isNaN(coeff) || isNaN(expo)) continue;
+
+        let term = coeff * Math.pow(x, expo);
+        result += term;
+
+        let sign = coeff >= 0 && i > 0 ? ' + ' : ' ';
+        polynomialString += `${sign}${coeff}x^${expo}`;
+    }
+
+    return { polynomialString, result };
+}
+
+document.getElementById('poly-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    let coeffInput = document.getElementById('poly-coeff').value.trim();
+    let expoInput = document.getElementById('poly-expo').value.trim();
+    let xValue = parseFloat(document.getElementById('poly-value').value);
+
+    if (!coeffInput || !expoInput || isNaN(xValue)) {
+        alert('Please enter valid coefficients, exponents, and an X value.');
+        return;
+    }
+
+    let coefficients = coeffInput.split(' ');
+    let exponents = expoInput.split(' ');
+
+    if (coefficients.length !== exponents.length) {
+        alert('Uneven amount of coefficients and exponents entered.');
+        return;
+    }
+
+    if (coefficients.some(c => isNaN(parseFloat(c))) || exponents.some(e => isNaN(parseFloat(e)))) {
+        alert('Please enter only numeric values for coefficients and exponents.');
+        return;
+    }
+
+    let { polynomialString, result } = polynomial(coefficients, exponents, xValue);
+
+    document.getElementById('poly-fxn').value = polynomialString;
+    document.getElementById('poly-result').value = result.toFixed(3);
 });
