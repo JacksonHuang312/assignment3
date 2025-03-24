@@ -9,6 +9,10 @@ document.getElementById('heron-form').addEventListener('submit', function (event
     const b = document.getElementById('heron-b').value;
     const c = document.getElementById('heron-c').value;
 
+    if (a < 0 || b < 0 || c < 0){
+        alert("Do not use negative numbers");
+    }
+
     const result = heron(a, b, c);
     document.getElementById('heron-result').value = result;
 });
@@ -18,7 +22,8 @@ function ambiguousCase(a, b, angle) {
     if (angle == 90) {
         return "Right Triangle";
     }
-    const h = b * Math.sin(angle * Math.PI / 180);
+    const h = Math.round(b * Math.sin(angle * Math.PI / 180));
+    console.log (h);
 
     if (angle < 90) {
         if (a < h) {
